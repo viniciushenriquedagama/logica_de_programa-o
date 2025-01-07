@@ -174,4 +174,4 @@ let lifeEnemy = enemyAdventure.hpboss
 
 console.log(heroAdventure)
 console.log(enemyAdventure)
-console.log(`Seiya usou ${heroAdventure.skill} no Dracula, Dragula esta com ${lifeEnemy},Dragula usou ${enemyAdventure.skill}`)
+console.log(`Seiya pegou a espada e usou ${heroAdventure.skill} no Dracula, Dracula esta com ${lifeEnemy},Dracula sugou seu sangue usando ${enemyAdventure.skill}`)
