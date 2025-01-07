@@ -7,13 +7,12 @@ class hero {
         this.type = type;
 
         this.force = 0;
-        this.powerMagic = 0;
+        this.powerMagic = 5;
         this.hp = 100
         this.resistance = 0;
         this.stamina = 50;
         this.skill = '';
-    };
-    race() {
+
         switch (this.race) {
             case 'human':
                 this.force += 70;
@@ -35,13 +34,10 @@ class hero {
                 this.stamina += 50
         }
 
-    };
-    skill() {
         if (this.skill = 'assault') {
             this.stamina -= 35;
             this.powerMagic -= 5;
             this.force += 20;
-            this.hp == 100 ? this.hp += 20 : this.hp;
         } else if (this.skill = 'ballmagic') {
             this.powerMagic -= 50;
             this.force += 70;
@@ -55,8 +51,6 @@ class hero {
         }
 
 
-    }
-    ability() {
         switch (this.type) {
             case 'warrior':
                 this.force += 100;
@@ -84,6 +78,10 @@ class hero {
 
         }
 
+    }
+    ataque(){
+        this.vida = this.force - enemyAdventure.hpboss;
+         this.hp = enemyAdventure.ataque
     }
 };
 class enemy {
@@ -94,13 +92,12 @@ class enemy {
         this.type = type;
 
         this.force = 0;
-        this.powerMagic = 0;
-        this.hp = 100
+        this.powerMagic = 5;
+        this.hpboss = 100
         this.resistance = 0;
         this.stamina = 50;
         this.skill = '';
-    };
-    race() {
+
         switch (this.race) {
             case 'human':
                 this.force += 70;
@@ -122,13 +119,11 @@ class enemy {
                 this.stamina += 50
         }
 
-    };
-    skill() {
         if (this.skill = 'assault') {
             this.stamina -= 35;
             this.powerMagic -= 5;
             this.force += 20;
-            this.hp == 100 ? this.hp += 20 : this.hp;
+            this.hpboss +=20
         } else if (this.skill = 'ballmagic') {
             this.powerMagic -= 50;
             this.force += 70;
@@ -141,9 +136,6 @@ class enemy {
             this.powerMagic -= 100
         }
 
-
-    }
-    ability() {
         switch (this.type) {
             case 'warrior':
                 this.force += 100;
@@ -159,22 +151,27 @@ class enemy {
                 break;
             case 'monk':
                 this.force +=5;
-                this.hp +=20;
+                this.hpboss +=20;
                 this.powerMagic +=100;
                 break;
             case 'vampire':
                 this.force +=50;
-                this.hp +=100;
+                this.hpboss +=100;
                 this.powerMagic +=10;
                 this.stamina += 50;
-
-
+                
+            }
         }
-
+        ataque(){    
+         this.vida = this.force - heroAdventure.hp;
+         this.hpboss = heroAdventure.ataque
+        }
     }
-}
+
 let heroAdventure = new hero('Seiya', 21 ,'human', 'warrior');
 let enemyAdventure = new enemy('Dracula', 1000, 'desconhecida', 'vampire')
+let lifeEnemy = enemyAdventure.hpboss
 
 console.log(heroAdventure)
 console.log(enemyAdventure)
+console.log(`Seiya usou ${heroAdventure.skill} no Dracula, Dragula esta com ${lifeEnemy},Dragula usou ${enemyAdventure.skill}`)
